@@ -6,20 +6,20 @@ uniform vec2 resolution;
 
 void main() {
 
-    vec2 fragCoord = vUv * resolution;
-    vec4 texel = fxaa(tDiffuse, fragCoord, resolution);
+  vec2 fragCoord = vUv * resolution;
+  vec4 texel = fxaa(tDiffuse, fragCoord, resolution);
 
-    vec2 res = (gl_FragCoord.xy / resolution.xy) - vec2(0.5);
-    res.x *= resolution.x / resolution.y;
+  vec2 res = (gl_FragCoord.xy / resolution.xy) - vec2(0.5);
+  res.x *= resolution.x / resolution.y;
 
-    // vec4 texel = texture2D( tDiffuse, vUv );
+  // vec4 texel = texture2D( tDiffuse, vUv );
 
-    // vignette
-    float len = length(res);
-    float vignette = smoothstep(.85, .5, len);
+  // vignette
+  float len = length(res);
+  float vignette = smoothstep(.85, .6, len);
 
-    texel = pow(texel, vec4(3.)) * vignette;
+  texel = pow(texel, vec4(3.)) * vignette;
 
-    gl_FragColor = texel;
+  gl_FragColor = texel;
 
 }

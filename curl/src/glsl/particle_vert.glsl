@@ -10,8 +10,10 @@ void main()
 {
     float multiplier = -100.;
 
-    //vec3 curlP = curl(position + (time));
-    vec3 curlP = curl(position);
+
+
+    vec3 curlP = curl(position + (time * .25));
+    //vec3 curlP = curl(position);
 
     //curlP.x = curlP.x * smoothstep(0., 200., curlP.z);
     curlP *= multiplier;
@@ -24,9 +26,9 @@ void main()
     // vPosition = curlP;
     // vUv = uv;
 
-    gl_PointSize = 1.;
+    gl_PointSize = 2.;
 
-    // transforming vec3 to vec4, because that's how matrices in 3d are vec4.
+    // transforming vec3 to vec4, because that's how matrices in 3d are vec4;
     vec4 position = vec4(curlP, 1.0);
 
     // translating with modelViewMatrix for rotation and scroll support!

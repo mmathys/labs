@@ -114,7 +114,8 @@ class App {
     this.composer.addPass(copyPass);
 
     this.bloom = new PyramidBloomPass();
-    this.composer.addPass(this.bloom);
+    //no bloom for today
+    //this.composer.addPass(this.bloom);
 
     let gamma = new THREE.ShaderPass(this.gamma);
     gamma.renderToScreen = true;
@@ -143,9 +144,14 @@ class App {
     let pPosition = new Float32Array(maxParticles * 3);
     // let _index = new Float32Array(maxParticles);
 
+    //BOOKMARK
     for (let i = 0, a = 0; i < pPosition.length; i+=3, a++) {
-      pPosition[i + 0] = this.SIZE.w2 / spread - (Math.random() * this.SIZE.w2 / (spread / 2));
-      pPosition[i + 1] = this.SIZE.h2 / spread - (Math.random() * this.SIZE.h2 / (spread / 2));
+      var range = {
+        w: this.SIZE.w2 / spread - (Math.random() * this.SIZE.w2 / (spread / 2)),
+        h: this.SIZE.h2 / spread - (Math.random() * this.SIZE.h2 / (spread / 2))
+      }
+      pPosition[i + 0] = range.w/1;
+      pPosition[i + 1] = range.h/1;
       pPosition[i + 2] = 0;
 
       // _index[a] = a;

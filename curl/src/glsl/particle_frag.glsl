@@ -7,5 +7,5 @@ void main() {
     // float alpha = 7. - abs(distance(vPosition.xy, vec2(.0)));
 
     gl_FragColor = vec4( color , .4 );
-    // gl_FragColor = gl_FragColor * texture2D( texture, vUv );
+    //gl_FragColor = gl_FragColor * texture2D( texture, vUv );
 }

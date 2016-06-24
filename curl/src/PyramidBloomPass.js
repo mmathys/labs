@@ -19,7 +19,7 @@ module.exports = function(THREE){
             vertexShader: this.vertexShader,
             fragmentShader: glslify('./glsl/bloom/blur_frag.glsl'),
             uniforms:{
-                blurAmount : {type: 'f', value:.29},
+                blurAmount : {type: 'f', value:.19},
                 d0: {type: 'v2', value:new THREE.Vector2( 0.0, 0.0 )},
                 d1: {type: 'v2', value:new THREE.Vector2( 0.0, 0.0 )},
                 d2: {type: 'v2', value:new THREE.Vector2( 0.0, 0.0 )},
@@ -34,7 +34,7 @@ module.exports = function(THREE){
         if(custom_func_text){
             params.defines={CUSTOM_COLOR_FUNC: custom_func_text};
         }
-        
+
         this.blur1_first_shader=new THREE.ShaderMaterial(params);
 
         this.plain_draw_shader = new THREE.ShaderMaterial({
@@ -144,7 +144,7 @@ module.exports = function(THREE){
             if(this.downsampled_buffer.length>1)this.upsample_one(this.downsampled_buffer[1], this.downsampled_buffer[0]);
         },
 
-        render: function ( renderer, writeBuffer, readBuffer, delta, maskActive ) 
+        render: function ( renderer, writeBuffer, readBuffer, delta, maskActive )
         {
             this.renderer = renderer;
             var context=this.renderer.context;
