@@ -7,7 +7,7 @@ const OrbitControls = require('three-orbit-controls')(THREE);
 const glslify       = require('glslify');
 const PyramidBloomPass = require('./PyramidBloomPass')(THREE);
 
-@replaceMe@require('./EffectComposer')(THREE);
+require('./EffectComposer')(THREE);
 
 
 class App {
